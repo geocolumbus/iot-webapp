@@ -5,7 +5,7 @@ aws_access_secret=$4
 local_path=$5
 ssh_ip_address=$6
 
-# Remove any existing versions of a ZIP
+# Remove any existing versions of a ZIP file
 rm -rf $local_path
 
 # Create a zip of the current directory.
