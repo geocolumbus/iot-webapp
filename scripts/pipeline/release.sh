@@ -3,6 +3,8 @@ aws_key=$2
 aws_access_key=$3
 aws_access_secret=$4
 local_path=$5
+ssh_key=$6
+ssh_ip_address=$7
 
 # Remove any existing versions of a ZIP
 rm -rf $local_path
@@ -15,3 +17,9 @@ pip3 install boto3
 
 # Run upload script
 python3 scripts/pipeline/upload_file_to_s3.py $bucket_name $aws_key $aws_access_key $aws_access_secret $local_path
+
+# Trigger deploy
+echo $ssh_key | tr -d '\r' > key.pem
+chmod 400 key.pem
+ssh -i key.pem -o "StrictHostKeyChecking no" ec2-user@$ssh_ip_address '/home/ec2-user/deploy.sh'
+
