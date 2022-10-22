@@ -21,5 +21,10 @@ python3 scripts/pipeline/upload_file_to_s3.py $bucket_name $aws_key $aws_access_
 # Trigger deploy
 echo $ssh_key | tr -d '\r' > key.pem
 chmod 400 key.pem
+echo ""
+echo $ssh_key
+echo "----------------"
+echo $ssh_ip_address
+echo ""
 ssh -i key.pem ec2-user@$ssh_ip_address '/home/ec2-user/deploy.sh'
 
