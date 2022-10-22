@@ -25,5 +25,5 @@ cat key.pem
 echo "----------------"
 echo "ssh_ip_address: $ssh_ip_address"
 echo ""
-ssh -i key.pem ec2-user@$ssh_ip_address '/home/ec2-user/deploy.sh'
+ssh -i key.pem "ec2-user@$ssh_ip_address" "/home/ec2-user/deploy.sh"
 
