@@ -9,4 +9,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Release to S3
-      run: bash scripts/pipeline/release.sh ${{secrets.AWS_Bucket_Name}} "folder1/myapp.zip" ${{secrets.AWS_Access_Key}} ${{secrets.AWS_Access_Secret}} "myapp.zip" ${{secrets.ssh_key}} ${{secrets.ssh_ip_address}}
+      run: echo "${{secrets.ssh_key}}" | tr -d '\r' > key.pem; bash scripts/pipeline/release.sh ${{secrets.AWS_Bucket_Name}} "folder1/myapp.zip" ${{secrets.AWS_Access_Key}} ${{secrets.AWS_Access_Secret}} "myapp.zip" ${{secrets.ssh_ip_address}}
