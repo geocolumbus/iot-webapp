@@ -1,6 +1,12 @@
 from flask import Flask
+
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
-    return '<h1>Hello, World!</h1><p>This should have deployed to S3</p>'
+
+@app.route("/")
+def hello():
+    return "<h1 style='color:blue'>This is the version from GitHub.</h1>"
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
