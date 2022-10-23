@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd /home/ec2-user || exit
-pip install -r requirements.txt
+cd /opt/webapp/myproject || exit
+pip3 install -r requirements.txt
