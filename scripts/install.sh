@@ -1,6 +1,6 @@
 #!/bin/bash
 
 cd /opt/webapp/myproject || exit
-source ./venv/bin/activate
+rm -rf __*
 pip3 install -r requirements.txt
-deactivate
+systemctl restart gunicorn
